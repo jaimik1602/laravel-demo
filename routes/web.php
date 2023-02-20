@@ -15,23 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('users.index');
+    return view('dashboard.dashboard');
 }); 
 
-Route::get('posts', function () {
-    return view('posts.index');
-}); 
+Route::view('users', 'users.index');
 
-Route::get('demo', function (){
-    return 'this is demo';
-});
 
-Route::get('demo-controller', [DemoController::class, 'demo']);
 
-Route::get('data/{data?}', function ($data = null){
-    return $data;
-});
+// Route::get('posts', function () {
+//     return view('posts.index');
+// }); 
 
-Route::get('demo-controller/{data}', [DemoController::class, 'getValue']);
+// Route::get('demo', function (){
+//     return 'this is demo';
+// });
 
-Route::get('blade-data/{data}/{data1?}', [DemoController::class, 'redirectToBlade']);
+// Route::get('demo-controller', [DemoController::class, 'demo']);
+
+// Route::get('data/{data?}', function ($data = null){
+//     return $data;
+// });
+
+// Route::get('demo-controller/{data}', [DemoController::class, 'getValue']);
+
+// Route::get('blade-data/{data}/{data1?}', [DemoController::class, 'redirectToBlade']);
