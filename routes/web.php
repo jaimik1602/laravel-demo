@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\FetchDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ Route::get('/', function () {
 
 Route::view('users', 'users.index');
 
-
+Route::get('get-data', [FetchDataController::class, 'fetchData']);
 
 // Route::get('posts', function () {
 //     return view('posts.index');
