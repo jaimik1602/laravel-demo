@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrudController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\FetchDataController;
 use Illuminate\Support\Facades\Route;
@@ -17,11 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard.dashboard');
-}); 
+});
 
 Route::view('users', 'users.index');
 
 Route::get('get-data', [FetchDataController::class, 'fetchData']);
+Route::get('store', [CrudController::class, 'store']);
+Route::get('update/{id}', [CrudController::class, 'update']);
+Route::get('delete/{id}', [CrudController::class, 'delete']);
+Route::get('get/{id}', [CrudController::class, 'get']);
 
 // Route::get('posts', function () {
 //     return view('posts.index');

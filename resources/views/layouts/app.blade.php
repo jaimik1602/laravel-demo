@@ -62,7 +62,7 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id="footer" class="footer fixed-bottom bg-light">
         <div class="text-center">
             &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved Designed by
             <a href="https://bootstrapmade.com/">BootstrapMade</a>
