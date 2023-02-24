@@ -3,18 +3,17 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="/">
+            <a class="nav-link " href="{{ url('/') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="users">
+            <a class="nav-link " href="{{ url('users') }}">
                 <i class="bi bi-grid"></i>
                 <span>Users</span>
             </a>
         </li>
-
 
     </ul>
 

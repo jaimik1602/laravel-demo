@@ -4,5 +4,5 @@
 @endsection
 
 @section('content')
-     Users content
+     <a href="{{ url('create-user') }}">Create User</a>
 @endsection
