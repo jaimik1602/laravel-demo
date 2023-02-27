@@ -62,12 +62,13 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom bg-light">
+    {{-- <footer id="footer" class="footer fixed-bottom bg-light">
         <div class="text-center">
             &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved Designed by
             <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
-    </footer><!-- End Footer -->
+    </footer> --}}
+    <!-- End Footer -->
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

@@ -27,9 +27,12 @@ Route::get('update/{id}', [CrudController::class, 'update']);
 Route::get('delete/{id}', [CrudController::class, 'delete']);
 Route::get('get/{id}', [CrudController::class, 'get']);
 
-Route::get('users', [UserController::class, 'index']);
+Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::get('create-user', [UserController::class, 'create']);
 Route::post('create-user', [UserController::class, 'store']);
+Route::get('edit-user/{id}', [UserController::class, 'edit']);
+Route::post('update-user/{id}', [UserController::class, 'update']);
+Route::get('delete-user/{id}', [UserController::class, 'destroy']);
 
 // Route::get('posts', function () {
 //     return view('posts.index');

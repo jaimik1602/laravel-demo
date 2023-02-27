@@ -4,5 +4,27 @@
 @endsection
 
 @section('content')
-     <a href="{{ url('create-user') }}">Create User</a>
+    <a href="{{ url('create-user') }}" class="btn btn-primary">Create User</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($users as $user)
+                <tr>
+                    <td> {{ $user->id }} </td>
+                    <td> {{ $user->name }} </td>
+                    <td> {{ $user->email }} </td>
+                    <td> <a href="{{ url('edit-user', ['id' => $user->id]) }}" class="btn btn-success">Edit</a> </td>
+                    <td> <a href="{{ url('delete-user', ['id' => $user->id]) }}" class="btn btn-danger">Edit</a> </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endsection

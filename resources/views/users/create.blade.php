@@ -9,7 +9,7 @@
         @csrf
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name">
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
             <small class="text-danger">
                 @error('name')
                     {{ $message }}
@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="email" value="{{ old('email') }}">
             <small class="text-danger">
                 @error('email')
                     {{ $message }}
@@ -34,6 +34,8 @@
                 @enderror
             </small>
         </div>
-        <button type="submit" class="btn btn-primary " aria-expanded="false">Submit</button>
+        <button type="submit" class="btn btn-primary" aria-expanded="false">Submit</button>
+        <button type="reset" class="btn btn-warning" aria-expanded="false">Reset</button>
+        <a href="{{ url('users') }}" class="btn btn-secondary">Back</a>
     </form>
 @endsection

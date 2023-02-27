@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return view('users.index');
+        $users = User::all();
+
+        return view('users.index', compact('users'));
     }
 
     public function create()
@@ -18,13 +22,47 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $input = $request->all();
         $request->validate([
             'name' => 'required',
             'email' => 'required|email:filter',
             'password' => 'required'
         ]);
-        
-        // return $request->all();
-        return $request->name;
+
+        // User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ]);
+
+        $input['password'] = Hash::make($input['password']);
+        User::create($input);
+
+        return redirect(route('users.index'));
+    }
+
+    public function edit($id)
+    {
+        $user =  User::find($id);
+
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $input = $request->all();
+        User::where('id', $id)->update([
+            'name' => $input['name'],
+            'email' => $input['email'],
+        ]);
+
+        return redirect(url('users'));
+    }
+
+    public function destroy($id)
+    {
+        User::find($id)->delete();
+
+        return redirect(url('users'));
     }
 }
