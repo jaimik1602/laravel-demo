@@ -8,8 +8,8 @@
     <form action="{{ url('update-user', ['id' => $user->id]) }}" method="post">
         @csrf
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+            <label for="userName" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" value="{{ $user->name }}" id="userName">
             <small class="text-danger">
                 @error('name')
                     {{ $message }}

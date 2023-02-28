@@ -23,6 +23,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
         $request->validate([
             'name' => 'required',
             'email' => 'required|email:filter',
@@ -35,7 +36,12 @@ class UserController extends Controller
         //     'password' => Hash::make($request->password),
         // ]);
 
+        $file = $request->file('file');
+        $fileName = $file->getClientOriginalName();
+        $file->storeAs('images', $fileName, 'public');
+
         $input['password'] = Hash::make($input['password']);
+        $input['image'] = 'images/' . $fileName;
         User::create($input);
 
         return redirect(route('users.index'));
