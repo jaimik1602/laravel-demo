@@ -11,6 +11,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">name</th>
                 <th scope="col">email</th>
+                <th scope="col">Image</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -21,6 +22,7 @@
                     <td> {{ $user->id }} </td>
                     <td> {{ $user->name }} </td>
                     <td> {{ $user->email }} </td>
+                    <td> <img src="{{$user->image}}" style="height: 40px; width: 70px;" alt=""></td>
                     <td> <a href="{{ url('edit-user', ['id' => $user->id]) }}" class="btn btn-success">Edit</a> </td>
                     <td> <a href="{{ url('delete-user', ['id' => $user->id]) }}" class="btn btn-danger">Edit</a> </td>
                 </tr>

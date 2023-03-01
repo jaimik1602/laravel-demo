@@ -34,6 +34,9 @@ Route::get('edit-user/{id}', [UserController::class, 'edit']);
 Route::post('update-user/{id}', [UserController::class, 'update']);
 Route::get('delete-user/{id}', [UserController::class, 'destroy']);
 
+// send mail
+Route::get('send-mail', [DemoController::class, 'sendMail']);
+Route::view('email', 'email');
 // Route::get('posts', function () {
 //     return view('posts.index');
 // }); 
