@@ -3,6 +3,7 @@
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\FetchDataController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,14 @@ Route::get('delete-user/{id}', [UserController::class, 'destroy']);
 // send mail
 Route::get('send-mail', [DemoController::class, 'sendMail']);
 Route::view('email', 'email');
+
+// Session 
+Route::controller(SessionController::class)->group(function () {
+    Route::get('set', 'set');
+    Route::get('get', 'get');
+    Route::get('forget', 'forget');
+});
+
 // Route::get('posts', function () {
 //     return view('posts.index');
 // }); 
