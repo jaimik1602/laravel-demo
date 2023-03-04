@@ -30,7 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-
+    @vite(["resources/js/app.js"])
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -82,7 +82,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </body>
 
 </html>

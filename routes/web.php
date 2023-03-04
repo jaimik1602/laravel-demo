@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard.dashboard');
-});
+})->middleware('demo');
 
 Route::get('get-data', [FetchDataController::class, 'fetchData']);
 Route::get('store', [CrudController::class, 'store']);

@@ -5,6 +5,8 @@
 
 @section('content')
     <a href="{{ url('create-user') }}" class="btn btn-primary">Create User</a>
+    <button id="fetchData">Fetch Data</button>
+    <div class="records"></div>
     <table class="table">
         <thead>
             <tr>
