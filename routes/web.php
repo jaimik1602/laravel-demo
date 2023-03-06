@@ -3,6 +3,7 @@
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\FetchDataController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,9 @@ Route::controller(SessionController::class)->group(function () {
     Route::get('get', 'get');
     Route::get('forget', 'forget');
 });
+
+// posts
+Route::resource('posts', PostController::class);
 
 // Route::get('posts', function () {
 //     return view('posts.index');
