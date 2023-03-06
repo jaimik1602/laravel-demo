@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        return  response()->json(Post::all());
     }
 
     /**
@@ -26,25 +26,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        dd($input);
         $file = $request->file('file');
         $fileName = $file->getClientOriginalName();
         $file->storeAs('images', $fileName, 'public');
         $input['image'] = 'images/' . $fileName;
-        Post::create($input);
+        $post =  Post::create($input);
 
-        return response()->json('Post created successfully');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return response()->json($post);
     }
 
     /**

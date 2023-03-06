@@ -6,28 +6,40 @@ $(document).ready(function () {
         }
     });
 
-    $('#fetchData').on('click', function () {
+    function getPosts() {
         $.ajax({
-            url: 'get-data',
+            url: 'posts',
             method: 'GET',
             success: function (result) {
-                $('.records').text(result)
-                console.log(result);
+                $.each(result, function (key, value) {
+                    $('#posts').append('<tr>' +
+                        '<td>' + value["id"] + '</td>' +
+                        '<td>' + value["name"] + '</td>' +
+                        '<td> <img src="' + value["image"] + '" width="70px"> </td>' +
+                        '</tr>');
+                })
             },
             error: function (error) {
                 console.log(error);
             }
         });
-    });
+    }
 
     $('#createPostForm').submit(function (e) {
         e.preventDefault();
         $.ajax({
             url: 'posts',
-            method: 'POST',
-            data: $(this).serialize(),
+            type: 'POST',
+            // data: $(this).serialize(),
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
             success: function (result) {
-                console.log(result);
+                $('#posts').append('<tr>' +
+                    '<td>' + result['id'] + '</td>' +
+                    '<td>' + result['name'] + '</td>' +
+                    '<td> <img src="' + result['image'] + '" width="70px"> </td>' +
+                    '</tr>');
             },
             error: function (error) {
                 console.log(error);
@@ -35,4 +47,5 @@ $(document).ready(function () {
         });
     });
 
+    getPosts();
 });

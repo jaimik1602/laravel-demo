@@ -48,6 +48,7 @@ Route::controller(SessionController::class)->group(function () {
 });
 
 // posts
+Route::view('posts-crud','posts.index');
 Route::resource('posts', PostController::class);
 
 // Route::get('posts', function () {

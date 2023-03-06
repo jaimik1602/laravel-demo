@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="{{ url('posts') }}">
+            <a class="nav-link posts" href="{{ url('posts-crud') }}">
                 <i class="bi bi-grid"></i>
                 <span>Posts</span>
             </a>
