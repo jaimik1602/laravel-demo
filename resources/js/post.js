@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+    getPosts();
+    
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
@@ -16,6 +17,10 @@ $(document).ready(function () {
                         '<td>' + value["id"] + '</td>' +
                         '<td>' + value["name"] + '</td>' +
                         '<td> <img src="' + value["image"] + '" width="70px"> </td>' +
+                        '<td>' +
+                        '<button class="btn btn-success m-1 edit-post" data-id="' + value["id"] + '">Edit</button>' +
+                        '<button class="btn btn-danger m-1 delete-post" data-id="' + value["id"] + '">Delete</button>' +
+                        '</td>' +
                         '</tr>');
                 })
             },
@@ -40,6 +45,7 @@ $(document).ready(function () {
                     '<td>' + result['name'] + '</td>' +
                     '<td> <img src="' + result['image'] + '" width="70px"> </td>' +
                     '</tr>');
+                $('#createPostForm').trigger("reset");
             },
             error: function (error) {
                 console.log(error);
@@ -47,5 +53,17 @@ $(document).ready(function () {
         });
     });
 
-    getPosts();
+    $(document).on('click', '.edit-post', function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'edit/' + $(this).attr('data-id'),
+            type: 'GET',
+            success: function (result) {
+                console.log(result);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
 });

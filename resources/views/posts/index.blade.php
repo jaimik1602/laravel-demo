@@ -27,9 +27,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Image</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id="posts">

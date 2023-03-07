@@ -48,8 +48,12 @@ Route::controller(SessionController::class)->group(function () {
 });
 
 // posts
-Route::view('posts-crud','posts.index');
-Route::resource('posts', PostController::class);
+Route::view('posts-crud', 'posts.index');
+Route::controller(PostController::class)->group(function () {
+    Route::get('posts', 'index');
+    Route::post('posts', 'store');
+    Route::get('edit/{id}', 'edit');
+});
 
 // Route::get('posts', function () {
 //     return view('posts.index');
