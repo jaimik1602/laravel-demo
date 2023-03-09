@@ -57,7 +57,16 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $file = $request->file('file');
+        $fileName = $file->getClientOriginalName();
+        $file->storeAs('images', $fileName, 'public');
+        $post =  Post::where('id', $id)->update([
+            'name' => $input['name'],
+            'image' => 'images/' . $fileName,
+        ]);
+
+        return response()->json($post);
     }
 
     /**
@@ -68,6 +77,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::where('id', $id)->delete();
+
+        return response()->json('post deleted');
     }
 }

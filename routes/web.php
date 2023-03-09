@@ -53,6 +53,8 @@ Route::controller(PostController::class)->group(function () {
     Route::get('posts', 'index');
     Route::post('posts', 'store');
     Route::get('edit/{id}', 'edit');
+    Route::post('update-post/{id}', 'update');
+    Route::post('delete-post/{id}', 'destroy');
 });
 
 // Route::get('posts', function () {
