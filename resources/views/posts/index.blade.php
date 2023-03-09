@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-lg-4">
             <form id="createPostForm" enctype="multipart/form-data">
+                {{-- <input type="text" value="{{ csrt_token() }}"> --}}
                 <div class="form-floating mb-3">
                     <input type="test" class="form-control" id="name" name="name" placeholder="Enter Name">
                     <label for="name">Name</label>

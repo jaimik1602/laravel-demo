@@ -12,6 +12,7 @@ $(document).ready(function () {
             url: 'posts',
             method: 'GET',
             success: function (result) {
+                console.log(result);
                 $.each(result, function (key, value) {
                     $('#posts').append('<tr>' +
                         '<td>' + value["id"] + '</td>' +
@@ -37,6 +38,9 @@ $(document).ready(function () {
             type: 'POST',
             // data: $(this).serialize(),
             data: new FormData(this),
+            // data: {
+            //     '_token' : $('#token').val(),
+            // }
             processData: false,
             contentType: false,
             success: function (result) {
@@ -44,6 +48,10 @@ $(document).ready(function () {
                     '<td>' + result['id'] + '</td>' +
                     '<td>' + result['name'] + '</td>' +
                     '<td> <img src="' + result['image'] + '" width="70px"> </td>' +
+                    '<td>' +
+                    '<button class="btn btn-success m-1 edit-post" data-id="' + result["id"] + '">Edit</button>' +
+                    '<button class="btn btn-danger m-1 delete-post" data-id="' + result["id"] + '">Delete</button>' +
+                    '</td>' +
                     '</tr>');
                 $('#createPostForm').trigger("reset");
             },
