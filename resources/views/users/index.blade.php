@@ -26,7 +26,7 @@
                     <td> {{ $user->email }} </td>
                     <td> <img src="{{$user->image}}" style="height: 40px; width: 70px;" alt=""></td>
                     <td> <a href="{{ url('edit-user', ['id' => $user->id]) }}" class="btn btn-success">Edit</a> </td>
-                    <td> <a href="{{ url('delete-user', ['id' => $user->id]) }}" class="btn btn-danger">Edit</a> </td>
+                    <td> <a href="{{ url('delete-user', ['id' => $user->id]) }}" class="btn btn-danger">Delete</a> </td>
                 </tr>
             @endforeach
         </tbody>
