@@ -17,6 +17,7 @@ class LoginController extends Controller
      */
     public function __invoke(Request $request)
     {
+        //  dd(Auth::check());
         $input = $request->all();
 
         $authenticate =  Auth::attempt(['email' => $input['email'], 'password' => $input['password']]);
